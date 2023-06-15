@@ -1,4 +1,83 @@
-html, body {
+html, body, h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1B1924;
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.main-container {
+    border: 1px solid red;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px 0px;
+}
+
+header,
+form,
+.input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-image {
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+form {
+    margin: 20px auto;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea,
+input {
+    font-family: 'Inter', sans-serif;
+    color: #8F8F8F;
+    background-color: #444059;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    width: 80%;
+    font-size: 15px;
+}
+
+input {
+    text-align: center;
+}
+
+#publish-btn {
+    color: #04131C;
+    background-color: #28A9F1;
+    border: none;
+    border-radius: 8px;
+    padding: 22px 40px;
+    width: calc(80% + 30px);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+@media (min-width: 600px) {
+    form {
+        width: 550px;
+    }
+    .input-wrapper {
+        flex-direction: row;
+        width: calc(80% + 30px);
+    }
 }

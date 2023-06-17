@@ -34,7 +34,7 @@ form,
 }
 
 h1 {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 700;
 }
 form {
@@ -72,12 +72,40 @@ input {
     font-weight: 700;
 }
 
+h2 {
+    font-size: 20px;
+    width: calc(80% + 30px);
+    text-align: center;
+    margin: 20px auto;
+}
+
+.end-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin: auto;
+    width: calc(80% + 30px);
+}
+
+#end-div {
+    background-color: #fff;
+    color: #1B1924;
+    padding: 14px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+
 @media (min-width: 600px) {
     form {
-        width: 550px;
+        width: 350px;
     }
     .input-wrapper {
         flex-direction: row;
         width: calc(80% + 30px);
+    }
+    .end-container {
+        width: calc(280px + 30px);
     }
 }

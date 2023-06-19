@@ -91,7 +91,39 @@ h2 {
     padding: 14px;
     font-size: 12px;
     font-family: 'Inter', sans-serif;
+    border-radius: 2px;
+    margin: 4px;
 }
+
+.end-div-inner-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+#remove {
+    margin: 0;
+    color: #8F8F8F;
+    cursor: pointer;
+    position: relative;
+}
+
+#remove .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #28A9F1;
+    color: #04131C;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    margin-left: 10px;
+  }
+
+  #remove:hover .tooltiptext {
+    visibility: visible;
+  }
 
 @media (min-width: 600px) {
     form {

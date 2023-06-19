@@ -25,8 +25,13 @@ publishBtn.addEventListener('click', function() {
         from: fromValue,
         to: toValue
     }
-    push(endorsementsInDB, fullEndorsementObject)
-    clearInputFieldEl()
+    if(inputFieldEl.value == 0) {
+        alert("Please add your endorsement")
+    } else {
+        push(endorsementsInDB, fullEndorsementObject)
+        clearInputFieldEl()
+    }
+
 })
 
 
@@ -65,11 +70,14 @@ function appendEndorsement(theEndorsement) {
     let fromValue = myEndorsement.from
     let toValue = myEndorsement.to
     newEndorsement.innerHTML = `
-        <h4>To: ${toValue}</h4>
+        <div class="end-div-inner-wrap">
+            <h4>To: ${toValue}</h4>
+            <p id="remove">Remove<span class="tooltiptext">Double click to remove</span></p>
+        </div>
         <p>${endorsementText}</p>
         <h4>From: ${fromValue}</h4>
         `
-    newEndorsement.addEventListener('click', function() {
+    newEndorsement.addEventListener('dblclick', function() {
         let exactLocationOfEndorsementInDB = ref(database, `endorsements/${endorsementID}`)
         remove(exactLocationOfEndorsementInDB)
     })

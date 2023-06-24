@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://ctendoresments-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -23,7 +23,8 @@ publishBtn.addEventListener('click', function() {
     let fullEndorsementObject = {
         endorsement: endorsementValue,
         from: fromValue,
-        to: toValue
+        to: toValue,
+        likes: 0
     }
     if(inputFieldEl.value == 0) {
         alert("Please add your endorsement")
@@ -69,18 +70,31 @@ function appendEndorsement(theEndorsement) {
     let endorsementText = myEndorsement.endorsement
     let fromValue = myEndorsement.from
     let toValue = myEndorsement.to
+    let likes = myEndorsement.likes
     newEndorsement.innerHTML = `
         <div class="end-div-inner-wrap">
             <h4>To: ${toValue}</h4>
             <p id="remove">Remove<span class="tooltiptext">Double click to remove</span></p>
         </div>
         <p>${endorsementText}</p>
-        <h4>From: ${fromValue}</h4>
+        <div class="end-div-inner-wrap">
+            <h4>From: ${fromValue}</h4>
+        </div>
         `
     newEndorsement.addEventListener('dblclick', function() {
         let exactLocationOfEndorsementInDB = ref(database, `endorsements/${endorsementID}`)
         remove(exactLocationOfEndorsementInDB)
     })
     endorsementContainer.appendChild(newEndorsement)
+    // likeEndorsement(newEndorsement, likes, endorsementID)
+    // console.log(likes)
 }
+
+// function likeEndorsement(element, likes, id) {
+//     element.addEventListener("click", function(){
+//         likes += 1
+//         set(ref(database,`endorsements/${id}/likes`),likes)
+//     })
+// }
+
 

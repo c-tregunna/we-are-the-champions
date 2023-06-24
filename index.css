@@ -100,7 +100,8 @@ h2 {
     justify-content: space-between;
 }
 
-#remove {
+#remove,
+#like {
     margin: 0;
     color: #8F8F8F;
     cursor: pointer;
@@ -109,8 +110,8 @@ h2 {
 
 #remove .tooltiptext {
     visibility: hidden;
-    width: 120px;
     background-color: #28A9F1;
+    font-size: 10px;
     color: #04131C;
     text-align: center;
     border-radius: 6px;
@@ -118,7 +119,8 @@ h2 {
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    margin-left: 10px;
+    top: -32px;
+    left: -25px;
   }
 
   #remove:hover .tooltiptext {
